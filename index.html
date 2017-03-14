@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <main id="app"></main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.23.1/babel.js"></script>
+  <script type="text/babel">
+    function Hola(props) {
+      const name = props.name;
+      const count = props.count;
+      return (
+      	<h1
+          id="Title"
+          onClick = { props.onClick } >
+          Hola {name} {count}
+        </h1>
+      );
+
+      // return React.DOM.h1({
+      //   id: 'Title',
+      // }, `Hola ${name}`);
+    }
+
+    class MiComponente extends React.PureComponent {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          count: 0
+        }
+
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick() {
+        this.setState({
+          count: this.state.count + 1
+        })
+      }
+
+      componentWillMount() {
+        console.log('el componenet se va a montar');
+      }
+
+      render() {
+        return (
+          <Hola
+            name = { this.props.name }
+            count = { this.state.count }
+            onClick = { this.handleClick }
+          />
+        );
+      }
+    }
+
+
+    // const OtroComponent = React.createClass({
+    //
+    //   getInitialState() {
+    //     return {
+    //       count: 0
+    //     };
+    //   },
+    //
+    //   handleClick() {
+    //     this.setState({
+    //       count: this.state.count + 1
+    //     })
+    //   },
+    //   render() {
+    //     const name = this.props.name;
+    //     return (
+    //     	<h1 id="title" onClick={this.handleClick}>
+    //         Hola {name} {this.state.count}
+    //       </h1>
+    //     );
+    //   }
+    //
+    // });
+
+    ReactDOM.render(
+      <MiComponente/>,
+      document.getElementById('app')
+    );
+
+    // setTimeout(
+    //   () => {
+    //     ReactDOM.render(
+    //       <Hola name="Platzi!" />,
+    //       document.getElementById('app')
+    //     );
+    //   },
+    //   1000
+    // );
+  </script>
+</body>
+</html>
