@@ -2,13 +2,13 @@ module.exports = {
   entry: './source/server.js',
   output: {
     filename: 'index.js',
-    path:'./build/server'
+    path: './build/server'
   },
   module: {
     loaders: [
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.jsx?$/,
@@ -20,5 +20,5 @@ module.exports = {
       }
     ]
   },
-  target: 'node',
-};
+  target: 'node'
+}

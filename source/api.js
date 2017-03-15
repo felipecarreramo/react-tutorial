@@ -14,8 +14,8 @@ const api = {
       const data = await response.json();
       return data;
     },
-    async getComment(id = 1) {
-      const response  = await fetch(`${baseURL}/comments/${id}`);
+    async getComments(id = 1) {
+      const response  = await fetch(`${baseURL}/post/${id}/comments`);
       const data = await response.json();
       return data;
     },
@@ -23,6 +23,11 @@ const api = {
   users: {
     async getSingle(id = 1) {
       const response  = await fetch(`${baseURL}/users/${id}`);
+      const data = await response.json();
+      return data;
+    },
+    async getPosts(id = 1) {
+      const response  = await fetch(`${baseURL}/posts?userId=${id}`);
       const data = await response.json();
       return data;
     }
