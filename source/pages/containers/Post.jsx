@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import PostBody from '../../Posts/containers/Post.jsx'
+import PostBody from '../../posts/containers/Post.jsx'
 import Loading from  '../../shared/components/Loading.jsx'
 import Comment from '../../comments/components/Comment.jsx'
 

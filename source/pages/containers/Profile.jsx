@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import Loading from '../../shared/components/Loading.jsx'
-import Post from '../../Posts/containers/Post.jsx'
+import Post from '../../posts/containers/Post.jsx'
 import api from '../../api.js'
 
 
